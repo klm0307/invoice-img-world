@@ -1,18 +1,16 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { useRoute } from 'vue-router'
+const route = useRoute()
 </script>
 
 <template>
-  <header>
-    <div class="container mx-auto px-4">
-      <nav class="flex flex-wrap">
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <main class="w-screen h-screen">
+    <RouterView v-slot="{ Component }">
+      <component :is="route.meta.layout">
+        <component :is="Component"></component>
+      </component>
+    </RouterView>
+  </main>
 </template>
 
 <style scoped></style>
