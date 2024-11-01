@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
 const route = useRoute()
+
+import.meta.env.VITE_GOOGLE_API_KEY
 </script>
 
 <template>
